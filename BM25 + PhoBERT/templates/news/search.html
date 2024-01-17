@@ -9,6 +9,7 @@
         </form>
         <p class="h3 my-3">Kết quả tìm kiếm cho {{query}}:</p>
         {% for i in k_idx %}
+            {% if data[index[i]].topic|string in type or type == [] %}
             <div class="card my-3">
                 <div class="row">
                     <div class="col-3">
@@ -42,6 +43,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
         {% endfor %}
         <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">

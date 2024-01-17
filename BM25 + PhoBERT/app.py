@@ -18,6 +18,7 @@ NUM_NEWS_PER_PAGE = 10
 items = list()
 query = ""
 similarities=list()
+content_sorted_indices=list()
 
 rdrsegmenter = py_vncorenlp.VnCoreNLP(annotators=["wseg"], save_dir= r'C:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\py_vncorenlp')
 os.chdir(r'C:\Users\Admin\Desktop\New folder (13)\VNnSE_Flask\BM25 + PhoBERT')
@@ -71,7 +72,7 @@ def cos_similarity(cv_query, databert):
         similarities.append(databert[i, :].dot(cv_query) / (np.linalg.norm(databert[i, :]) * np.linalg.norm(cv_query)))
     similarities = np.array(similarities)
     sorted_ids=similarities.argsort()[::-1]
-    k = 10
+    k = 50
     k_idx = sorted_ids[0: k]
     items = k_idx
     return similarities.astype(str)
@@ -115,9 +116,10 @@ def home():
 
 @app.route("/search", methods=["POST", "GET"])
 def submit():
-    global items, query,similarities
+    global items, query,similarities, content_sorted_indices
     if request.method == "POST":
         query = request.form['search']
+        typechk = request.form.getlist('checkbox_Type')
         p_query = remove_special_characters(remove_stopwords(stopwords, segment_text(lower_text(query))))
         bm25 = BM25Okapi(tokenized_corpus)
         bm_query = p_query.split(" ")
@@ -126,13 +128,12 @@ def submit():
         content_sorted_indices = sorted(range(len(doc_scores)), key=lambda i: doc_scores[i], reverse=True)
         BM25_list50_titles = bm25.get_top_n(bm_query, titles, n=50)
         matrix = phoBERT(BM25_list50_content)
-
         cv_query = query_input(p_query)
         similarities= cos_similarity(cv_query, matrix)
     page, per_page, offset = get_page_args(page_parameter='page', per_page_parameter='per_page')
     pagination = Pagination(page=page, per_page=per_page, total=len(items), css_framework='bootstrap5')
     k_idx_show = items[offset: offset + NUM_NEWS_PER_PAGE]
-    return render_template("news/search.html", k_idx = k_idx_show, data=data, similarities=similarities,query = query, pagination=pagination, index = content_sorted_indices)
+    return render_template("news/search.html", k_idx = k_idx_show, data=data, similarities=similarities,query = query, pagination=pagination, index = content_sorted_indices, type=typechk)
 
 if __name__ == "__main__":
     data = json.load(open(r'data\ArticlesNewspaper.json', 'r', encoding="utf-8"))
