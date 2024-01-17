@@ -1,13 +1,13 @@
-from flask import Flask, request, render_template, url_for, redirect
+from flask import Flask, request, render_template
 from flask_paginate import Pagination, get_page_args
 import json
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
 from rank_bm25 import BM25Okapi
 import torch
 from transformers import AutoModel, AutoTokenizer
 import numpy as np
 import py_vncorenlp
+import os
+
 
 phobert = AutoModel.from_pretrained("vinai/phobert-base-v2")
 tokenizer = AutoTokenizer.from_pretrained("vinai/phobert-base-v2")
@@ -20,7 +20,8 @@ query = ""
 similarities=list()
 
 rdrsegmenter = py_vncorenlp.VnCoreNLP(annotators=["wseg"], save_dir= r'C:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\site-packages\py_vncorenlp')
-stopwords= open(r'C:\Users\Admin\Desktop\VNnSE_Flask\data\vietnamese-stopwords-dash.txt','r',encoding='utf-8').read().split("\n")
+os.chdir(r'C:\Users\Admin\Desktop\New folder (13)\VNnSE_Flask\BM25 + PhoBERT')
+stopwords= open(r'data\vietnamese-stopwords-dash.txt','r',encoding='utf-8').read().split("\n")
 special_characters = [
     '!', '"', '#', '$', '%', '&', "'", '(', ')', '*',
     '+', ',', '-', '.', '/', ':', ';', '<', '=', '>',
@@ -134,10 +135,10 @@ def submit():
     return render_template("news/search.html", k_idx = k_idx_show, data=data, similarities=similarities,query = query, pagination=pagination, index = content_sorted_indices)
 
 if __name__ == "__main__":
-    data = json.load(open(r"C:\Users\Admin\Desktop\VNnSE_Flask - Copy\data\ArticlesNewspaper.json", 'r', encoding="utf-8"))
+    data = json.load(open(r'data\ArticlesNewspaper.json', 'r', encoding="utf-8"))
     data_text = [i['title']+ " " + i['abstract']for i in data]
     titles = [i['title']for i in data]
-    stopwords= open(r"C:\Users\Admin\Desktop\VNnSE_Flask - Copy\data\vietnamese-stopwords-dash.txt",'r',encoding='utf-8').read().split("\n")
-    prpfi = open(r"C:\Users\Admin\Desktop\VNnSE_Flask - Copy\data\preprocessing.txt", 'r', encoding='utf-8').read().split("\n")
+    stopwords= open(r"data\vietnamese-stopwords-dash.txt",'r',encoding='utf-8').read().split("\n")
+    prpfi = open(r"data\preprocessing.txt", 'r', encoding='utf-8').read().split("\n")
     tokenized_corpus = [doc.split(" ") for doc in prpfi]
     app.run(debug=True)
