@@ -4,4 +4,6 @@ This is our implementation for the project "Ad-hoc Document Retrieval for Vietna
 
 # What we did?
 
+\begin{itemize}
 \item 
+\end{itemize}
