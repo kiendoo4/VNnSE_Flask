@@ -1,6 +1,6 @@
 # Ad-hoc Document Retrieval for Vietnamese Newspapers
 
-We present our implementation of a document search approach.
+We present our implementation of a document search approach which combinates traditional keyword matching method with the ability of PLM to archive contextual understanding.
 
 # What we did?
 
