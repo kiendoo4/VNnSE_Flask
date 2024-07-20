@@ -29,7 +29,9 @@ An example of an e-newspaper's structure is shown below.
 
 As illustrated, each e-newspaper typically contains seven key attributes: title, abstract, source, link, topic, posting time, and image link (the URL of the main image).
 
-Approximately 50,000 news articles were extracted from five Vietnamese news sources (Lao Động, Dân Trí, VnExpress, VTC, and Đảng Cộng Sản) using BeautifulSoup. 49542 articles would be used for demonstration purposes (link: https://drive.google.com/file/d/15e2N3Vp6CBosQI7zq8U9Z3yyccFD0Apu/view?usp=drive_link) and 352 articles for evaluation using $nDCG@10$ ```.\Ronaldo.xlsx```.
+Approximately 50,000 news articles were extracted from five Vietnamese news sources (Lao Động, Dân Trí, VnExpress, VTC, and Đảng Cộng Sản) using BeautifulSoup. 49542 articles would be used for demonstration purposes ([data][1]) and 352 articles for evaluation using $nDCG@10$ ```.\Ronaldo.xlsx```.
+
+[1]: https://drive.google.com/file/d/15e2N3Vp6CBosQI7zq8U9Z3yyccFD0Apu/view?usp=drive_link data
 
 # Preprocessing
 
@@ -63,7 +65,7 @@ The result of different approachs was showed in the table below:
 
 ![](./nDCG_score.png)
 
-You can look for more details of our work in this [PDF](./Ad-hoc Document Retrieval for Vietnamese Newspapers.pdf) 
+You can look for more details of our work in this ```./Ad-hoc Document Retrieval for Vietnamese Newspapers.pdf``` 
 
 # Demo
 
