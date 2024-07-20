@@ -31,7 +31,7 @@ As illustrated, each e-newspaper typically contains seven key attributes: title,
 
 Approximately 50,000 news articles were extracted from five Vietnamese news sources (Lao Động, Dân Trí, VnExpress, VTC, and Đảng Cộng Sản) using BeautifulSoup. 49542 articles would be used for demonstration purposes [data][1] and 352 articles for evaluation using $nDCG@10$ ```.\Ronaldo.xlsx```.
 
-[1]: https://drive.google.com/file/d/15e2N3Vp6CBosQI7zq8U9Z3yyccFD0Apu/view?usp=drive_link data
+[1]: https://drive.google.com/file/d/15e2N3Vp6CBosQI7zq8U9Z3yyccFD0Apu/view?usp=drive_link "data"
 
 # Preprocessing
 
