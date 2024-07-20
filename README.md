@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/079cf432-960d-4e15-aa94-cfbd83244200)![image](https://github.com/user-attachments/assets/1434b25d-6f2d-44fb-b5ac-461275c396b2)![image](https://github.com/user-attachments/assets/85bba285-525f-4527-b4e5-976b72fac54c)# Ad-hoc Document Retrieval for Vietnamese Newspapers
+# Ad-hoc Document Retrieval for Vietnamese Newspapers
 
 This is our implementation for the project "Ad-hoc Document Retrieval for Vietnamese Newspapers".
 
