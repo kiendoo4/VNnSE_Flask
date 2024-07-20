@@ -10,7 +10,7 @@ Our work:
 
 * An experiment was conducted to compare the performance of different methods. Our results indicated that the combination of TF-IDF and Vietnamese-SBERT significantly outperformed competing approaches, attaining an $nDCG@10$ score of 95.82\% from our test set.
 
-* Developed a web chatbot application with Flask and Bootstrap 5.0.
+* Developed a newspaper web search application with Flask and Bootstrap 5.0.
 
 # Multi-stage Document Ranking
 
