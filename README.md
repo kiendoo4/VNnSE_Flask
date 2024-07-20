@@ -1,6 +1,6 @@
 # Ad-hoc Document Retrieval for Vietnamese Newspapers
 
-This is our implementation for the project "Ad-hoc Document Retrieval for Vietnamese Newspapers".
+We present our implementation of a document search approach. We called it: "Ad-hoc Document Retrieval for Vietnamese Newspapers".
 
 # What we did?
 
@@ -29,7 +29,7 @@ An example of an e-newspaper's structure is shown below.
 
 As illustrated, each e-newspaper typically contains seven key attributes: title, abstract, source, link, topic, posting time, and image link (the URL of the main image).
 
-Approximately 50,000 news articles were extracted from five Vietnamese news sources (Lao Động, Dân Trí, VnExpress, VTC, and Đảng Cộng Sản) using BeautifulSoup. 49542 articles would be used for demonstration purposes and 352 articles for evaluation using nDCG@10 ```.\Ronaldo.xlsx```.
+Approximately 50,000 news articles were extracted from five Vietnamese news sources (Lao Động, Dân Trí, VnExpress, VTC, and Đảng Cộng Sản) using BeautifulSoup. 49542 articles would be used for demonstration purposes (link: https://drive.google.com/file/d/15e2N3Vp6CBosQI7zq8U9Z3yyccFD0Apu/view?usp=drive_link) and 352 articles for evaluation using nDCG@10 ```.\Ronaldo.xlsx```.
 
 # Preprocessing
 
@@ -76,11 +76,19 @@ You could clone this repo to try it yourself.
 We would like to acknowledge the significant contributions of these works to our project. These were the sources we consulted for our research: 
 
 [1]. PhoBERT: Pre-trained language models for Vietnamese - https://aclanthology.org/2020.findings-emnlp.92.pdf
+
 [2]. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding - https://arxiv.org/pdf/1810.04805.pdf
+
 [3]. Improvements to BM25 and Language Models Examined - https://www.cs.otago.ac.nz/homepages/andrew/papers/2014-2.pdf
+
 [4]. Rank-BM25: A two line search engine - https://pypi.org/project/rank-bm25/
+
 [5]. IR-BERT: Leveraging BERT for Semantic Search in Background Linking for News Articles - https://arxiv.org/abs/2007.12603
+
 [6]. Ad-hoc retrieval with BERT - https://arxiv.org/abs/2007.12603
+
 [7]. Vietnamese-SBERT - https://huggingface.co/keepitreal/vietnamese-sbert
+
 [8]. TF-IDF là gì? - https://vi.wikipedia.org/wiki/Tf%E2%80%93idf
+
 [9]. Thực thi TF-IDF - https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
