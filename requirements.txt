@@ -1,1 +1,3 @@
-Flask
+Flask==3.0.3
+flask_paginate==2024.4.12
+json
