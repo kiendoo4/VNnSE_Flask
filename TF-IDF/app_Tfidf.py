@@ -41,7 +41,7 @@ def submit():
     return render_template("news/search.html", k_idx = k_idx_show, data=data,similarities=similarities,query = query, pagination=pagination)
 
 if __name__ == "__main__":
-    data = json.load(open(r"data\ArticlesNewspaper.json", 'r', encoding="utf-8"))
+    data = json.load(open('.app/static/ArticlesNewspaper.json', 'r', encoding="utf-8"))
     data_text = [i['title']+ " " + i['abstract']for i in data]
     stopwords= open('data/vietnamese-stopwords.txt','r',encoding='utf-8').read().split("\n")
     vectorizer = TfidfVectorizer(stop_words=stopwords)
